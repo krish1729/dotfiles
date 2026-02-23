@@ -1,5 +1,5 @@
 local config = function()
-	require("nvim-treesitter.configs").setup({
+	require("nvim-treesitter.config").setup({
 		build = ":TSUpdate",
 		indent = {
 			enable = true,

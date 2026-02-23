@@ -1,6 +1,14 @@
 return {
-	"datsfilipe/vesper.nvim",
+	"rose-pine/neovim",
+	name = "rose-pine",
 	config = function()
-		vim.cmd.colorscheme("vesper")
+		require("rose-pine").setup({
+			disable_background = true,
+			styles = {
+				-- transparency = true,
+				italic = false,
+			},
+		})
+		vim.cmd("colorscheme rose-pine")
 	end,
 }
