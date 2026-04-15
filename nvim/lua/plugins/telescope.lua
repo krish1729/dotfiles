@@ -3,8 +3,10 @@ return {
 	tag = "v0.2.0",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+		"nvim-telescope/telescope-ui-select.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-tree/nvim-web-devicons",
+		"LinArcX/telescope-env.nvim",
 		"folke/todo-comments.nvim",
 	},
 	config = function()
@@ -14,6 +16,12 @@ return {
 		telescope.setup({
 			defaults = {
 				path_display = { "smart" },
+				layout_config = {
+					height = 100,
+					width = 400,
+					prompt_position = "top",
+					preview_cutoff = 40,
+				},
 				mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
@@ -25,6 +33,8 @@ return {
 		})
 
 		telescope.load_extension("fzf")
+		telescope.load_extension("ui-select")
+		telescope.load_extension("env")
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness

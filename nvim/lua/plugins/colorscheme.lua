@@ -1,14 +1,18 @@
 return {
-	"rose-pine/neovim",
-	name = "rose-pine",
+	"rebelot/kanagawa.nvim",
 	config = function()
-		require("rose-pine").setup({
-			disable_background = true,
-			styles = {
-				-- transparency = true,
-				italic = false,
+		require("kanagawa").setup({
+			transparent = false,
+			colors = {
+				theme = {
+					all = {
+						ui = {
+							bg_gutter = "none",
+						},
+					},
+				},
 			},
 		})
-		vim.cmd("colorscheme rose-pine")
+		vim.cmd("colorscheme kanagawa")
 	end,
 }

@@ -8,7 +8,7 @@ return {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
-		"jcha0713/cmp-tw2css",
+		-- "jcha0713/cmp-tw2css",
 		"hrsh7th/nvim-cmp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
@@ -86,7 +86,7 @@ return {
 		})
 
 		-- used to enable autocompletion (assign to every lsp server config)
-		-- local capabilities = cmp_lsp.default_capabilities()
+		local capabilities = cmp_lsp.default_capabilities()
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 		vim.api.nvim_set_hl(0, "CmpNormal", {})
 		cmp.setup({
@@ -96,9 +96,9 @@ return {
 				end,
 			},
 			mapping = cmp.mapping.preset.insert({
-				["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-				["<C-y>"] = cmp.mapping.confirm({ select = true }),
+				["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
+				["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
+				["<CR>"] = cmp.mapping.confirm({ select = true }),
 				["<C-e>"] = vim.NIL,
 			}),
 
@@ -121,7 +121,7 @@ return {
 						return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
 					end,
 				},
-				{ name = "cmp-tw2css" },
+				-- { name = "cmp-tw2css" },
 				{ name = "buffer" },
 				{ name = "path" },
 			}, {}),
